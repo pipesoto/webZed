@@ -31,6 +31,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- captcha -->
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 
 <body>
@@ -378,7 +381,7 @@
                             <h2 class="mt-2">Escríbenos para cualquier consulta</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <form>
+                            <form action="./php/procesar_formulario.php"  method="post">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -404,6 +407,7 @@
                                             <label for="message">Mensaje</label>
                                         </div>
                                     </div>
+                                    <div class="h-captcha" data-sitekey="86a4bd83-75cd-44b2-a0f9-8e031a6e0695"></div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Enviar</button>
                                     </div>
