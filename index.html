@@ -27,6 +27,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -179,8 +180,10 @@
                             </div>
                             <h5 class="mb-3">SMS Marketing</h5>
                             <p>¡Potencia tu negocio con SMS Marketing! Envía mensajes personalizados y promociones directamente a tus clientes. Aumenta ventas y fidelización. ¡Haz crecer tu marca hoy!</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Ver más</a>
+                            <a class="btn px-3 mt-auto mx-auto" data-target="#exampleModalLong" role="button" data-toggle="modal">Ver más</a>   
                         </div>
+                      
+
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
@@ -484,7 +487,32 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
     </div>
-
+<!-- modals -->
+                           <!-- Modal sms-->
+                           <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"  aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">SMS Marketing</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="text-center">
+                                    <img src="./img/sms_img.jpg" alt="SMS Marketing" style="max-width: 200px;">
+                                  </div>
+                                <div class="modal-body">
+                                    <p>Descubre el poder del SMS Marketing y lleva tu negocio al siguiente nivel. Con nuestra plataforma, puedes enviar mensajes personalizados y promociones directamente a tus clientes, alcanzándolos de manera efectiva y directa.</p>
+                                    <p>El SMS Marketing es una herramienta versátil que te permite aumentar las ventas al dirigirte a clientes potenciales de manera precisa y oportuna. Al enviar mensajes relevantes y personalizados, fortaleces la fidelización de tus clientes existentes y creas una conexión sólida y duradera.</p>
+                                    <p>Ya sea que estés promocionando una venta especial, anunciando el lanzamiento de un nuevo producto o simplemente manteniendo a tus clientes informados, el SMS Marketing es indispensable en tu estrategia de marketing. Aprovecha esta oportunidad para hacer crecer tu marca y alcanzar nuevos niveles de éxito hoy mismo.</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+<!-- fin de modals -->
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -494,6 +522,8 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
