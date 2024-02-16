@@ -505,3 +505,6 @@ h6,
     display: flex;
     justify-content: space-between;
 }
+.fa-home{
+ transform: scaleX(-1);
+}
