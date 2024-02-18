@@ -1,32 +1,47 @@
 <?php
+// Iniciar sesión si no está iniciada
+session_start();
+
+// Verificar si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['name'];
-    $email = $_POST['email'];
-    $mensaje = $_POST['subject'];
-    $captcha = $_POST['h-captcha-response'];
+    // Verificar si se completó el reCAPTCHA
+    $captcha = $_POST['g-recaptcha-response'];
+    $secretKey = "6Lc7zXYpAAAAAL6Z9FKCvD35fuBn90wGTwSiEWYp";
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha);
+    $responseKeys = json_decode($response, true);
     
-    // Verificar el CAPTCHA
-    $respuesta = file_get_contents("https://hcaptcha.com/siteverify?secret=ES_502fb82dae1c408186fae444f4ddd9d9&response=$captcha");
-    $respuesta = json_decode($respuesta);
-    
-    if ($respuesta->success) {
-        // El CAPTCHA es válido, procede a enviar el correo
-        $destinatario = "fesotopedrero@gmail.com";
-        $asunto = "Nuevo mensaje del formulario de contacto ZedTech";
-        $cuerpo = "Nombre: $nombre\n";
-        $cuerpo .= "Email: $email\n";
-        $cuerpo .= "Mensaje:\n$mensaje";
+    // Si el reCAPTCHA fue completado correctamente, procesar el formulario
+    if ($responseKeys["success"]) {
+        // Recoger los datos del formulario
+        $nombre = $_POST['name'];
+        $email = $_POST['email'];
+        $mensaje = $_POST['subject'];
         
-        if (mail($destinatario, $asunto, $cuerpo)) {
-            echo "¡El formulario se ha enviado con éxito!";
+        // Aquí puedes añadir más validaciones de los campos del formulario si es necesario
+        
+        // Procesar el envío del correo electrónico
+        $para = "fesotopedrero@gmail.com";
+        $asunto = "Mensaje de contacto de $nombre";
+        $contenido = "Nombre: $nombre\nCorreo electrónico: $email\nMensaje: $mensaje";
+        $cabeceras = "From: $email";
+
+        // Enviar el correo electrónico
+        $envio_exitoso = mail($para, $asunto, $contenido, $cabeceras);
+
+        // Configurar el mensaje de respuesta
+        if ($envio_exitoso) {
+            $response = array('message' => '¡Gracias! Tu mensaje ha sido enviado correctamente.', 'type' => 'success');
         } else {
-            echo "Hubo un error al enviar el formulario.";
+            $response = array('message' => 'Error: No se pudo enviar el formulario. Por favor, intenta nuevamente.', 'type' => 'error');
         }
+
+        // Devolver la respuesta al cliente
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit();
     } else {
-        // El CAPTCHA no es válido, muestra un mensaje de error o redirige al usuario
-        echo "Por favor, complete el CAPTCHA correctamente.";
+        // Si el reCAPTCHA no fue completado correctamente, configurar un mensaje de error
+        $_SESSION['message'] = "Error: Por favor, completa el reCAPTCHA correctamente.";
     }
-} else {
-    echo "Hubo un error al procesar el formulario.";
 }
 ?>

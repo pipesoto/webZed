@@ -32,8 +32,11 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- captcha -->
-    <script src="https://hcaptcha.com/1/api.js" async defer></script>
+    <!-- Agregar los estilos de Toastify -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.0/toastify.min.css">
+
+    <!-- recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -182,7 +185,7 @@
                             </div>
                             <h5 class="mb-3">SMS Marketing</h5>
                             <p>¡Potencia tu negocio con SMS Marketing! Envía mensajes personalizados y promociones directamente a tus clientes. Aumenta ventas y fidelización. ¡Haz crecer tu marca hoy!</p>
-                            <a class="btn px-3 mt-auto mx-auto" data-target="#exampleModalLong" role="button" data-toggle="modal">Ver más</a>   
+                            <a class="btn px-3 mt-auto mx-auto" data-target="#sms" role="button" data-toggle="modal">Ver más</a>   
                         </div>
                       
 
@@ -194,7 +197,7 @@
                             </div>
                             <h5 class="mb-3">Automatización RPA</h5>
                             <p>Optimiza tu empresa con nuestra solución de Automatización RPA. Simplifica procesos, aumenta la eficiencia y reduce costos. Libera tiempo para tareas estratégicas. ¡Haz más, con menos esfuerzo!</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Ver más</a>
+                            <a class="btn px-3 mt-auto mx-auto" data-target="#rpa" role="button" data-toggle="modal">Ver más</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
@@ -204,7 +207,7 @@
                             </div>
                             <h5 class="mb-3">Central Telefónica</h5>
                             <p>Mejora la comunicación empresarial con nuestra Central Telefónica con Agentes. Conecta, gestiona y eleva la experiencia del cliente de manera eficiente. ¡Potencia tu equipo y maximiza resultadosgit</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="">Ver más</a>
+                            <a class="btn px-3 mt-auto mx-auto" data-target="#telefonia" role="button" data-toggle="modal">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -380,38 +383,44 @@
                             <h2 class="mt-2">Escríbenos para cualquier consulta</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <form action="./php/procesar_formulario.php"  method="post">
+                            <form id="contactForm" action="#" method="POST">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                                             <label for="name">Ingresa tu nombre</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
                                             <label for="email">Ingresa tu correo</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                            <input type="text" class="form-control" id="subject"  name="subject" placeholder="Subject" required>
                                             <label for="subject">Ingresa asunto</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                            <textarea class="form-control" placeholder="Leave a message here" name="messaje" id="message" required style="height: 150px"></textarea>
                                             <label for="message">Mensaje</label>
                                         </div>
                                     </div>
-                                    <div class="h-captcha" data-sitekey="86a4bd83-75cd-44b2-a0f9-8e031a6e0695"></div>
+                                    <div class="col-12">
+                                    <div class="g-recaptcha" data-sitekey="6Lc7zXYpAAAAAMJAeTjL-2PCNrw8qQX4xHw2CbTH">
+
+                                    </div>
+                                </div>
+      
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Enviar</button>
                                     </div>
                                 </div>
                             </form>
+                            <div id="toast"></div>
                         </div>
                     </div>
                 </div>
@@ -492,8 +501,8 @@
     </div>
 <!-- modals -->
                            <!-- Modal sms-->
-                           <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"  aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                           <div class="modal fade" id="sms" tabindex="-1" role="dialog"  aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <h5 class="modal-title" id="exampleModalLongTitle">SMS Marketing</h5>
@@ -515,6 +524,57 @@
                               </div>
                             </div>
                           </div>
+                          <!-- fin modal sms -->
+                           <!-- Modal rpa-->
+                           <div class="modal fade" id="rpa" tabindex="-1" role="dialog"  aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable d-flex align-items-center" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Automatización RPA</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="text-center">
+                                    <img src="./img/rpa-img.jpg" alt="SMS Marketing" style="max-width: 200px;">
+                                  </div>
+                                <div class="modal-body">
+                                    <p>Descubre el poder del SMS Marketing y lleva tu negocio al siguiente nivel. Con nuestra plataforma, puedes enviar mensajes personalizados y promociones directamente a tus clientes, alcanzándolos de manera efectiva y directa.</p>
+                                    <p>El SMS Marketing es una herramienta versátil que te permite aumentar las ventas al dirigirte a clientes potenciales de manera precisa y oportuna. Al enviar mensajes relevantes y personalizados, fortaleces la fidelización de tus clientes existentes y creas una conexión sólida y duradera.</p>
+                                    <p>Ya sea que estés promocionando una venta especial, anunciando el lanzamiento de un nuevo producto o simplemente manteniendo a tus clientes informados, el SMS Marketing es indispensable en tu estrategia de marketing. Aprovecha esta oportunidad para hacer crecer tu marca y alcanzar nuevos niveles de éxito hoy mismo.</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- fin modal rpa -->
+                           <!-- Modal telefonia-->
+                           <div class="modal fade" id="telefonia" tabindex="-1" role="dialog"  aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Central Telefónica</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="text-center">
+                                    <img src="./img/callcenter.jpg" alt="SMS Marketing" style="max-width: 200px;">
+                                  </div>
+                                <div class="modal-body">
+                                    <p>Descubre el poder del SMS Marketing y lleva tu negocio al siguiente nivel. Con nuestra plataforma, puedes enviar mensajes personalizados y promociones directamente a tus clientes, alcanzándolos de manera efectiva y directa.</p>
+                                    <p>El SMS Marketing es una herramienta versátil que te permite aumentar las ventas al dirigirte a clientes potenciales de manera precisa y oportuna. Al enviar mensajes relevantes y personalizados, fortaleces la fidelización de tus clientes existentes y creas una conexión sólida y duradera.</p>
+                                    <p>Ya sea que estés promocionando una venta especial, anunciando el lanzamiento de un nuevo producto o simplemente manteniendo a tus clientes informados, el SMS Marketing es indispensable en tu estrategia de marketing. Aprovecha esta oportunidad para hacer crecer tu marca y alcanzar nuevos niveles de éxito hoy mismo.</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- fin modal telefonia -->
 <!-- fin de modals -->
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -525,9 +585,50 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.0/toastify.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío normal del formulario
+    
+            // Enviar el formulario utilizando AJAX
+            var formData = new FormData(this);
+    
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', './php/procesar_formulario.php', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Respuesta del servidor recibida correctamente
+                    var response = JSON.parse(xhr.responseText);
+                    showToast(response.message, response.type);
+                } else {
+                    // Error al recibir la respuesta del servidor
+                    showToast('Error: No se pudo enviar el formulario', 'error');
+                }
+            };
+            xhr.onerror = function() {
+                // Error al enviar la solicitud AJAX
+                showToast('Error: No se pudo enviar el formulario', 'error');
+            };
+            xhr.send(formData);
+        });
+    
+        // Función para mostrar la notificación Toastify
+        function showToast(message, type) {
+            var backgroundColor = type === 'error' ? '#f44336' : '#4CAF50';
+            Toastify({
+                text: message,
+                duration: 3000,
+                close: true,
+                gravity: 'top',
+                position: 'right',
+                backgroundColor: backgroundColor
+            }).showToast();
+        }
+    </script>
+          
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

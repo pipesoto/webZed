@@ -1,3 +1,7 @@
+html,body{
+    width: 100%!important;
+    overflow-x: hidden!important;
+}
 /********** Template CSS **********/
 :root {
     --primary: #2124B1;
@@ -333,10 +337,17 @@ h6,
 
 
 /*** Team ***/
+.team-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .team-item {
     position: relative;
     transition: .5s;
     z-index: 1;
+    width: 300px; /* Tamaño inicial para cada elemento */
+    margin: 10px; /* Espacio entre elementos */
 }
 
 .team-item::after {
