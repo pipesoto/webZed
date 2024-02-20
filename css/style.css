@@ -519,3 +519,21 @@ h6,
 .fa-home{
  transform: scaleX(-1);
 }
+.social-icons {
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px; /* Ajusta el espacio entre los íconos según lo desees */
+}
+
+.social-icons li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último ícono para evitar espacio adicional */
+}
+@media (min-width: 992px) {
+    .footer .col-lg-3.text-center {
+        text-align: left;
+    }
+}
