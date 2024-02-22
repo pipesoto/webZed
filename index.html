@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    <div class="container-xxl bg-white p-0 esto">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -78,6 +78,35 @@
                        
                         <a href="#contact" class="nav-item nav-link">Contacto</a>
                     </div>
+                      <!-- Aquí agrega el marcado estructurado -->
+            <div itemscope itemtype="http://schema.org/BreadcrumbList" class="d-none">
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="index.html">
+                        <span itemprop="name">Inicio</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </span>
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="#about">
+                        <span itemprop="name">Nosotros</span>
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </span>
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="#service">
+                        <span itemprop="name">Servicios</span>
+                    </a>
+                    <meta itemprop="position" content="3" />
+                </span>
+                <!-- Agrega más elementos ListItem según sea necesario para cada enlace en tu menú -->
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="#contact">
+                        <span itemprop="name">Contacto</span>
+                    </a>
+                    <meta itemprop="position" content="4" />
+                </span>
+            </div>
+            <!-- Fin del marcado estructurado -->
                 </div>
             </nav>
 
@@ -226,7 +255,7 @@
 
 
        <!-- Portfolio Start -->
-        <!-- <div class="container-xxl py-5">
+        <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="position-relative d-inline text-primary ps-4">Nuestros Proyectos</h6>
@@ -296,7 +325,7 @@
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="img/portfolio-5.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Estadisticas de las Campañas</small>
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>RPA</small>
                                   
                                 </div>
                             </div>
@@ -316,7 +345,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- Portfolio End -->
          <!-- Contact Start -->
          <div class="container-xxl py-5" id="contact">
@@ -379,8 +408,8 @@
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-3">Ubícanos</h5>
                         <p><i class="fa fa-map-marker-alt me-3"></i>Soberanía #2143, Quinta Normal </p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+56974389896</p>
-                        <p><i class="fa fa-envelope me-3"></i>contacto@zed.cl</p>
+                        <p><i class="fa fa-phone-alt me-3"></i><a href="tel:+56930075854" style="color: inherit;">+56930075854</a></p>
+                        <p><i class="fa fa-envelope me-3"></i><a href="mailto:contacto@zed.cl" style="color: inherit;">contacto@zed.cl</a></p>
                         
                     </div>
                     <div class="col-md-6 col-lg-3">
@@ -393,13 +422,14 @@
                     <div class="col-md-6 col-lg-3 text-center mb-4 mb-md-0">
                         <h5 class="text-white mb-3">Síguenos en Redes Sociales</h5>
                         <ul class="list-unstyled social-icons d-flex justify-content-center">
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f" style="color: #3b5998; font-size: 30px;"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter" style="color: #1da1f2; font-size: 30px;"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-instagram" style="color: #c13584; font-size: 30px;"></i></a></li>
+                            <li class="me-3"><a href="#" target="_blank"><i class="fab fa-facebook-f" style="color: #3b5998; font-size: 30px;"></i></a></li>
+                            <li class="me-3"><a href="#" target="_blank"><i class="fab fa-twitter" style="color: #1da1f2; font-size: 30px;"></i></a></li>
+                            <li class="me-3"><a href="#" target="_blank"><i class="fab fa-instagram" style="color: #c13584; font-size: 30px;"></i></a></li>
                             <li><a href="#" target="_blank"><i class="fab fa-tiktok" style="color: #000; font-size: 30px;"></i></a></li>
                             <!-- Agrega más redes sociales según sea necesario -->
                         </ul>
                     </div>
+                    
                     
                 </div>
             </div>
@@ -407,9 +437,9 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">ZED Tech</a>, Todos los derechos reservados. 
+                            &copy; <a class="border-bottom" href="index.html">ZED Tech</a>, Todos los derechos reservados. 
 							
-							Deseñado por <a class="border-bottom" href="https://www.zed.cl">ZED Tech</a>
+							Deseñado por <a class="border-bottom" href="index.html">ZED Tech</a>
                             </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
@@ -427,7 +457,7 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+        
     </div>
 <!-- modals -->
 <!-- Modal botcon-->
@@ -580,6 +610,15 @@
                           </div>
                           <!-- fin modal telefonia -->
 <!-- fin de modals -->
+
+<!-- icono de whatsapp -->
+<div id="whatsapp-chat" class="whatsapp-chat"  style="display: none;">
+    <a target="_blank" href="https://wa.me/+56974389896?text=Hola%20desde%20mi%20sitio%20web" title="Chat por WhatsApp">
+        <img src="./img/wsp_.png" alt="WhatsApp">
+    </a>
+</div>
+
+<!-- fin icono de whatsapp -->
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -637,7 +676,16 @@
             }).showToast();
         }
     </script>
-          
+           <script>
+            window.addEventListener('scroll', function() {
+                var whatsappChat = document.getElementById('whatsapp-chat');
+                if (window.scrollY > 100) { // Cambia 100 por el número de píxeles que desees que el usuario haga scroll antes de que aparezca el ícono
+                    whatsappChat.style.display = 'block';
+                } else {
+                    whatsappChat.style.display = 'none';
+                }
+            });
+        </script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

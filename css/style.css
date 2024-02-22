@@ -1,7 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 html,body{
     width: 100%!important;
     overflow-x: hidden!important;
 }
+
 /********** Template CSS **********/
 :root {
     --primary: #2124B1;
@@ -537,3 +542,31 @@ h6,
         text-align: left;
     }
 }
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+    .whatsapp-chat {
+        display: none; /* Oculta el botón en dispositivos móviles */
+    }
+}
+
+/* Estilos para pantallas más grandes (PCs, tablets) */
+@media only screen and (min-width: 769px) {
+    .whatsapp-chat {
+        display: block; /* Muestra el botón en pantallas más grandes */
+        position: fixed;
+        bottom: 20px; /* Cambia el valor para ajustar la posición vertical */
+        right: 20px; /* Cambia el valor para ajustar la posición horizontal */
+        z-index: 100;
+    }
+}
+
+#whatsapp-chat img {
+    width: 120px; /* Ajusta el tamaño del icono según sea necesario */
+    height: auto; /* Mantenemos la proporción de aspecto */
+    border-radius: 0%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Evita que se resalte al tocar */
+    -webkit-touch-callout: none; /* Evita que aparezca el menú de acciones al mantener presionado */
+}
+    
+
